@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1498</width>
-    <height>960</height>
+    <width>808</width>
+    <height>658</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <x>0</x>
       <y>0</y>
       <width>811</width>
-      <height>461</height>
+      <height>621</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -125,6 +125,116 @@
        <string>ip setting :</string>
       </property>
      </widget>
+     <widget class="QLabel" name="encoder_value_R">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>60</y>
+        <width>67</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>60</y>
+        <width>81</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Encoder R :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>40</y>
+        <width>81</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Encoder L :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="encoder_value_L">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>40</y>
+        <width>67</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>170</y>
+        <width>67</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>motor L :</string>
+      </property>
+     </widget>
+     <widget class="QSlider" name="motor_L_val">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>170</y>
+        <width>160</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <number>300</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QSlider" name="motor_R_val">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>190</y>
+        <width>160</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <number>300</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_17">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>190</y>
+        <width>67</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>motor R :</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="slam">
      <attribute name="title">
@@ -142,197 +252,127 @@
       <layout class="QVBoxLayout" name="rviz_layout"/>
      </widget>
     </widget>
-   </widget>
-   <widget class="QLabel" name="robot_cam">
-    <property name="geometry">
-     <rect>
-      <x>830</x>
-      <y>30</y>
-      <width>320</width>
-      <height>240</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::Box</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>1100</x>
-      <y>280</y>
-      <width>51</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>CAM1</string>
-    </property>
-   </widget>
-   <widget class="QTabWidget" name="tabWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>460</y>
-      <width>811</width>
-      <height>471</height>
-     </rect>
-    </property>
-    <property name="currentIndex">
-     <number>0</number>
-    </property>
-    <widget class="QWidget" name="mission1">
+    <widget class="QWidget" name="camera">
      <attribute name="title">
-      <string>mission1</string>
+      <string>camera</string>
      </attribute>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>280</y>
+        <width>51</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>CAM2</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>280</y>
+        <width>51</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>CAM1</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>570</y>
+        <width>51</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>CAM4</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="robot_cam_4">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>320</y>
+        <width>320</width>
+        <height>240</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="robot_cam_2">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>30</y>
+        <width>320</width>
+        <height>240</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="robot_cam">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>30</y>
+        <width>320</width>
+        <height>240</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>570</y>
+        <width>51</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>CAM3</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="robot_cam_3">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>320</y>
+        <width>320</width>
+        <height>240</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </widget>
-    <widget class="QWidget" name="mission2">
-     <attribute name="title">
-      <string>mission2</string>
-     </attribute>
-    </widget>
-   </widget>
-   <widget class="QLabel" name="robot_cam_3">
-    <property name="geometry">
-     <rect>
-      <x>830</x>
-      <y>320</y>
-      <width>320</width>
-      <height>240</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::Box</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>1100</x>
-      <y>570</y>
-      <width>51</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>CAM3</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="robot_cam_2">
-    <property name="geometry">
-     <rect>
-      <x>1160</x>
-      <y>30</y>
-      <width>320</width>
-      <height>240</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::Box</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>1430</x>
-      <y>570</y>
-      <width>51</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>CAM4</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="robot_cam_4">
-    <property name="geometry">
-     <rect>
-      <x>1160</x>
-      <y>320</y>
-      <width>320</width>
-      <height>240</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::Box</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>1430</x>
-      <y>280</y>
-      <width>51</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>CAM2</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_6">
-    <property name="geometry">
-     <rect>
-      <x>840</x>
-      <y>620</y>
-      <width>81</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Encoder L :</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>840</x>
-      <y>640</y>
-      <width>81</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Encoder R :</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="encoder_value_L">
-    <property name="geometry">
-     <rect>
-      <x>920</x>
-      <y>620</y>
-      <width>67</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="encoder_value_R">
-    <property name="geometry">
-     <rect>
-      <x>920</x>
-      <y>640</y>
-      <width>67</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
    </widget>
   </widget>
   <widget class="QToolBar" name="mainToolBar">

@@ -55,8 +55,6 @@
     <param name="sharpness" value="120"/>
     <param name="exposure" value="120"/>
   </node>
-    <node name="mini_serial" pkg="mini_serial" type="mini_serial">
-  </node>
     <node name="mini_robot_master" pkg="mini_robot_master" type="mini_robot_master">
   </node>
 </launch>

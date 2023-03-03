@@ -101,6 +101,11 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent) :
     grid_->subProp( "Cell Size" )->setValue( 100 / 10.0f );
 
     //##################################################################################//
+
+    connect(ui->motor_L_val, SIGNAL(valueChanged(int)), this, SLOT(motor_L_publish(int)));
+    connect(ui->motor_R_val, SIGNAL(valueChanged(int)), this, SLOT(motor_R_publish(int)));
+    motor_msgs.motor_L = 0;
+    motor_msgs.motor_R = 0;
     return;
 }
 
@@ -253,6 +258,16 @@ void MainWindow::Encoder_Callback(const mini_serial::encoder_msgPtr &msg){
     encoder_val_R = msg->encoder_R;
     // ui->encoder_value_L->setText(encoder_val_L.toString());
     // ui->encoder_value_R->setText(encoder_val_R.toString());
+}
+
+void MainWindow::motor_L_publish(int val){
+    motor_msgs.motor_L = val;
+    Motor_pub.publish(motor_msgs);
+}
+
+void MainWindow::motor_R_publish(int val){
+    motor_msgs.motor_R = val;
+    Motor_pub.publish(motor_msgs);
 }
 
 void MainWindow::on_pushButton_clicked(){

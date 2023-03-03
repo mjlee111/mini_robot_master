@@ -90,6 +90,9 @@ public Q_SLOTS:
     void udp_read();
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
+    void motor_L_publish(int val);
+    void motor_R_publish(int val);
+    
     
 private:
 
@@ -124,10 +127,13 @@ private:
     //##################################################################################//
     ros::Publisher Motor_pub;
     //##################################################################################//
+    mini_serial::motor_msg motor_msgs;
+    //##################################################################################//
     void Cam_Callback(const sensor_msgs::ImageConstPtr& msg_img);
     void scan_data_send(const sensor_msgs::LaserScan& scan);
     void map_data_send(const nav_msgs::OccupancyGrid::ConstPtr& map);
     void Encoder_Callback(const mini_serial::encoder_msgPtr &msg);
+    
     //##################################################################################//
     int init_argc;
     char** init_argv;
