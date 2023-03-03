@@ -51,7 +51,7 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent) :
     //Lidar_sub = n.subscribe("/scan", 1, &MainWindow::scan_data_send, this);
     Map_sub = n.subscribe("/map", 1, &MainWindow::map_data_send, this);
     Encoder_sub = n.subscribe("/encoder_state", 1, &MainWindow::Encoder_Callback, this);
-    
+    Joy_sub = n.subscribe("/joy", 10, &MainWindow::Joystick_Callback, this);
     //##################################################################################//
     // Publisher
     Motor_pub = n.advertise<mini_serial::motor_msg>("/motor_val", 1);
@@ -256,8 +256,53 @@ void MainWindow::map_data_send(const nav_msgs::OccupancyGrid::ConstPtr& map){
 void MainWindow::Encoder_Callback(const mini_serial::encoder_msgPtr &msg){
     encoder_val_L = msg->encoder_L;
     encoder_val_R = msg->encoder_R;
-    // ui->encoder_value_L->setText(encoder_val_L.toString());
-    // ui->encoder_value_R->setText(encoder_val_R.toString());
+    ui->encoder_value_L->setNum(encoder_val_L);
+    ui->encoder_value_R->setNum(encoder_val_R);
+}
+
+void MainWindow::Joystick_Callback(const sensor_msgs::Joy::ConstPtr &joy){
+    leftStickX = joy->axes[0];
+    leftStickY = joy->axes[1];
+    rightStickX = joy->axes[3];
+    rightStickY = joy->axes[4];
+    l2 = joy->buttons[6];
+    r2 = joy->buttons[7];
+    arrowX = joy->axes[6];
+    arrowY = joy->axes[7];
+    buttonSq = joy->buttons[3];
+    buttonX = joy->buttons[0];
+    buttonO = joy->buttons[1];
+    buttonTr= joy->buttons[2];
+    l1 = joy->buttons[4];
+    r1 = joy->buttons[5];
+    buttonShare = joy->buttons[8];
+    buttonOption= joy->buttons[9];
+    if(controller_stat == true){
+        if(fabs(leftStickY) > fabs(leftStickX)){
+            if(leftStickY > 0 || leftStickY < 0){
+                ui->motor_L_val->setValue((int)(leftStickY*300));
+                ui->motor_R_val->setValue((int)(leftStickY*300));
+            }
+            else{
+                ui->motor_L_val->setValue(0);
+                ui->motor_R_val->setValue(0);
+            }
+        }
+        else if (fabs(leftStickY) < fabs(leftStickX)){
+            if(leftStickX > 0 || leftStickX < 0){
+                ui->motor_L_val->setValue((int)(leftStickX*300));
+                ui->motor_R_val->setValue(-(int)(leftStickX*300));
+            }
+            else{
+                ui->motor_L_val->setValue(0);
+                ui->motor_R_val->setValue(0);
+            }
+        }
+        else{
+            ui->motor_L_val->setValue(0);
+            ui->motor_R_val->setValue(0);
+        }
+    }
 }
 
 void MainWindow::motor_L_publish(int val){
@@ -280,4 +325,19 @@ void MainWindow::on_pushButton_clicked(){
 
 void MainWindow::on_pushButton_2_clicked(){
     ui->send_log->clear();
+}
+
+void MainWindow::on_controller_mode_clicked(){
+    ROS_INFO("trig");
+    if(controller_stat == false){
+        controller_stat = true;
+        ui->controller_display->setText("ON");
+    } 
+    else if(controller_stat == true){
+        controller_stat = false;
+        ui->controller_display->setText("OFF");
+        ui->motor_L_val->setValue(0);
+        ui->motor_R_val->setValue(0);
+    }
+    else;
 }

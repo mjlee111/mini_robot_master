@@ -199,6 +199,9 @@
         <height>16</height>
        </rect>
       </property>
+      <property name="minimum">
+       <number>-300</number>
+      </property>
       <property name="maximum">
        <number>300</number>
       </property>
@@ -214,6 +217,9 @@
         <width>160</width>
         <height>16</height>
        </rect>
+      </property>
+      <property name="minimum">
+       <number>-300</number>
       </property>
       <property name="maximum">
        <number>300</number>
@@ -233,6 +239,71 @@
       </property>
       <property name="text">
        <string>motor R :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>150</y>
+        <width>21</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>150</y>
+        <width>31</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>300</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>150</y>
+        <width>31</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-300</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="controller_mode">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>220</y>
+        <width>131</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>controller mode</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="controller_display">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>250</y>
+        <width>31</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>OFF</string>
       </property>
      </widget>
     </widget>

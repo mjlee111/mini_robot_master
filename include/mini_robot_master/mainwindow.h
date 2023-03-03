@@ -43,6 +43,9 @@
 #include "../crc/crc.h"
 #include <mini_serial/encoder_msg.h>
 #include <mini_serial/motor_msg.h>
+#include <sensor_msgs/Joy.h>
+
+#include <math.h>
 #endif
 
 namespace Ui {
@@ -80,6 +83,12 @@ public:
     void run();
     bool ui_check = false;
 
+
+    float leftStickY = 0, leftStickX = 0, rightStickY = 0, rightStickX = 0, l2 = 0, r2 = 0;
+    int arrowX = 0, arrowY = 0, buttonSq = 0, buttonX = 0, buttonO = 0, buttonTr = 0, l1 = 0, r1 = 0, buttonShare = 0;
+    int buttonOption = 0;
+    int buttonTouch = 0;
+
 Q_SIGNALS:
     void rosShutdown();
     void view_SIGNAL(void);
@@ -90,13 +99,15 @@ public Q_SLOTS:
     void udp_read();
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
+    void on_controller_mode_clicked();
     void motor_L_publish(int val);
     void motor_R_publish(int val);
     
     
 private:
-
     bool connection = false;
+    bool controller_stat = false;
+    
     
     Ui::MainWindow *ui;
     //##################################################################################//
@@ -124,6 +135,7 @@ private:
     ros::Subscriber Lidar_sub;
     ros::Subscriber Map_sub;
     ros::Subscriber Encoder_sub;
+    ros::Subscriber Joy_sub;
     //##################################################################################//
     ros::Publisher Motor_pub;
     //##################################################################################//
@@ -133,7 +145,7 @@ private:
     void scan_data_send(const sensor_msgs::LaserScan& scan);
     void map_data_send(const nav_msgs::OccupancyGrid::ConstPtr& map);
     void Encoder_Callback(const mini_serial::encoder_msgPtr &msg);
-    
+    void Joystick_Callback(const sensor_msgs::Joy::ConstPtr &joy);
     //##################################################################################//
     int init_argc;
     char** init_argv;

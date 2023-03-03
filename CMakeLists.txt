@@ -15,6 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
   roslib
   rviz
   mini_serial
+  sensor_msgs
 )
 
 find_package(Qt5Network REQUIRED)
@@ -29,6 +30,7 @@ catkin_package(
     roslib
     roscpp
     std_msgs
+    sensor_msgs
     rospy
     DEPENDS
 )
