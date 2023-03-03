@@ -4,48 +4,56 @@
 #include <QMainWindow>
 
 #ifndef Q_MOC_RUN
+// basic header
 #include <ros/ros.h>
 #include <ros/network.h>
 #include <iostream>
-#include <QtGui>
 #include <thread>
-#include <QThread>
-#include <string>
-#include <QStringListModel>
 
+// QT header
+#include <QtGui>
+#include <QThread>
+#include <QStringListModel>
 #include <QObject>
 #include <QtNetwork/QUdpSocket>
 #include <QtNetwork/QHostAddress>
 #include <QDialog>
 #include <QDebug>
 #include <QString>
-
-#include <opencv2/opencv.hpp>
-#include "opencv2/highgui.hpp"
-#include "opencv2/core/mat.hpp"
-#include "opencv2/imgcodecs.hpp"
-#include "sensor_msgs/Image.h"
-#include "image_transport/image_transport.h"
-#include <cv_bridge/cv_bridge.h>
-
-#include <sensor_msgs/LaserScan.h>
-#include "nav_msgs/OccupancyGrid.h"
-
-#include "rviz/visualization_manager.h"
-#include "rviz/render_panel.h"
-#include "rviz/display.h"
-#include "rviz/default_plugin/map_display.h"
 #include <QSlider>
 #include <QLabel>
 #include <QGridLayout>
 #include <QVBoxLayout>
 
-#include "../crc/crc.h"
+// OpenCV header
+#include <opencv2/opencv.hpp>
+#include "opencv2/highgui.hpp"
+#include "opencv2/core/mat.hpp"
+#include "opencv2/imgcodecs.hpp"
+#include "image_transport/image_transport.h"
+#include <cv_bridge/cv_bridge.h>
+
+// rviz header
+#include "rviz/visualization_manager.h"
+#include "rviz/render_panel.h"
+#include "rviz/display.h"
+#include "rviz/default_plugin/map_display.h"
+
+
+// msgs header
 #include <mini_serial/encoder_msg.h>
 #include <mini_serial/motor_msg.h>
 #include <sensor_msgs/Joy.h>
+#include "sensor_msgs/Image.h"
+#include <sensor_msgs/LaserScan.h>
+#include "nav_msgs/OccupancyGrid.h"
 
+
+// additional header
+#include "../crc/crc.h"
+#include <string>
 #include <math.h>
+
 #endif
 
 namespace Ui {
@@ -85,9 +93,7 @@ public:
 
 
     float leftStickY = 0, leftStickX = 0, rightStickY = 0, rightStickX = 0, l2 = 0, r2 = 0;
-    int arrowX = 0, arrowY = 0, buttonSq = 0, buttonX = 0, buttonO = 0, buttonTr = 0, l1 = 0, r1 = 0, buttonShare = 0;
-    int buttonOption = 0;
-    int buttonTouch = 0;
+    int arrowX = 0, arrowY = 0, buttonSq = 0, buttonX = 0, buttonO = 0, buttonTr = 0, l1 = 0, r1 = 0, buttonShare = 0, buttonOption = 0, buttonTouch = 0;
 
 Q_SIGNALS:
     void rosShutdown();

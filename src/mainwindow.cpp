@@ -106,6 +106,8 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent) :
     connect(ui->motor_R_val, SIGNAL(valueChanged(int)), this, SLOT(motor_R_publish(int)));
     motor_msgs.motor_L = 0;
     motor_msgs.motor_R = 0;
+    controller_stat = true;
+    ui->controller_display->setText("ON");
     return;
 }
 
@@ -122,7 +124,6 @@ MainWindow::~MainWindow(){
 void MainWindow::udp_write(QString text){
     QByteArray packet;
     packet.append(text);
-    //qDebug() << "Message from: udp_write";
     socket->writeDatagram(packet, OP, ROBOT_PORT);
 }
 
